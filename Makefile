@@ -1,28 +1,34 @@
 ######################################################################
 # @author      : Justin Kachele (justin@kachele.com)
 # @file        : Makefile
-# @created     : Monday Feb 26, 2024 13:39:15 EST
+# @created     : Monday Feb 26, 2024 13:43:29 EST
 ######################################################################
 
-IDIR =./include
-CC=gcc
-CFLAGS=-I$(IDIR)
+CC = gcc
+CFLAGS = -g
 
-ODIR=obj
+SRC = src/2023/Day1/Day1a.c
+OBJ = $(SRC:.c=.o)
+BIN = bin
 
-LIBS=
+.PHONY: all build dirs clean
 
-_OBJ = main.o 
-OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
+all: dirs out
 
-$(ODIR)/%.o: %.c
-	$(CC) -c -o $@ $< $(CFLAGS)
+build: all
 
-main: $(OBJ)
-	$(CC) -o $@ $^ $(CFLAGS) $(LIBS)
+dirs:
+	mkdir -p ./$(BIN)
 
-.PHONY: clean
+run: all
+	$(BIN)/out
+
+out: $(OBJ)
+	$(CC) -o $(BIN)/out $^ $(LDFLAGS)
+
+%.o: %.c
+	$(CC) -o $@ -c $< $(CFLAGS)
 
 clean:
-	rm -f $(ODIR)/*.o
+	rm -rf bin/
 

@@ -6,16 +6,19 @@
 
 CC = gcc
 CFLAGS = -g
+LDFLAGS = -g
 
-SRC = src/2023/Day1/Day1a.c
+SRC = src/2023/Day1/Day1b.c $(wildcard src/util/*.c)
 OBJ = $(SRC:.c=.o)
 BIN = bin
 
 .PHONY: all build dirs clean
 
-all: dirs out
+all: dirs out release
 
-build: all
+build: dirs out
+
+buildRelease: dirs release
 
 dirs:
 	mkdir -p ./$(BIN)
@@ -25,6 +28,9 @@ run: all
 
 out: $(OBJ)
 	$(CC) -o $(BIN)/out $^ $(LDFLAGS)
+
+release: $(OBJ)
+	$(CC) -o $(BIN)/release $^ -s
 
 %.o: %.c
 	$(CC) -o $@ -c $< $(CFLAGS)

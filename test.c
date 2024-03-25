@@ -17,6 +17,7 @@ void printArray(int array[10]) {
 
 int main(int argc, char *argv[]) {
     printf("Hello, World!\n");
+<<<<<<< HEAD
     int array[10][10];
     for (int y = 0; y < 10; y++) {
         for (int x = 0; x < 10; x++) {
@@ -32,6 +33,12 @@ int main(int argc, char *argv[]) {
     // }
 
     printArray(array[3]);
+=======
+
+    char num = '6';
+
+    printf("Char: %c = %d\n", num, num - '0');
+>>>>>>> 7ba1eb0 (Continue Day 3)
 
     return 0;
 }

@@ -7,6 +7,7 @@
  ************************************************/
 
 #include <stdio.h>
+<<<<<<< HEAD
 
 void printArray(int array[10]) {
     for (int i = 0; i < 10; i++) {
@@ -34,11 +35,29 @@ int main(int argc, char *argv[]) {
 
     printArray(array[3]);
 =======
+=======
+#include "src/util/linkedlist.h"
 
-    char num = '6';
+int main(int argc, char *argv[]) {
+    printf("Hello, World!\n");
+    llist *ll = llist_create();
+    llNode *node1 = llist_create_node("Hello 1");
+    llNode *node2 = llist_create_node("Hello 2");
+    llNode *node3 = llist_create_node("Hello 3");
+    llNode *node4 = llist_create_node("Hello 4");
+>>>>>>> 639af58 (Refactored Linked List Library)
 
+    llist_add_node(ll, node1);
+    llist_add_node(ll, node2);
+    llist_add_node(ll, node3);
+    llist_add_node(ll, node4);
+
+<<<<<<< HEAD
     printf("Char: %c = %d\n", num, num - '0');
 >>>>>>> 7ba1eb0 (Continue Day 3)
+=======
+    llist_print(ll);
+>>>>>>> 639af58 (Refactored Linked List Library)
 
     return 0;
 }

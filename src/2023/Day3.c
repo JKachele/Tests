@@ -12,7 +12,6 @@
 #include "../util/linkedlist.h"
 #include "../util/inputFile.h"
 
-<<<<<<< HEAD
 int MAX_X;
 int MAX_Y;
 
@@ -57,13 +56,6 @@ int findNumber(char schem[MAX_X], int x) {
 void part1(llist *ll) {
     llNode *current = ll->head;
     char schematic[MAX_Y][MAX_X];
-=======
-void part1(llist *ll) {
-    llNode *current = ll->head;
-    int maxX = llist_get_longest_node(ll);
-    int maxY = ll->length;
-    char schematic[maxX][maxY];
->>>>>>> 639af58 (Refactored Linked List Library)
     for(int y = 0; current != NULL; y++) {
         char str[BUFFER_SIZE];
         strncpy(str, current->str, BUFFER_SIZE);
@@ -128,7 +120,6 @@ void part1(llist *ll) {
     printf("Part 1: Part Number Sum = %d\n", partNumSum);
 }   // }}}
 
-<<<<<<< HEAD
 // Part 2 {{{
 void part2(llist *ll) {
     llNode *current = ll->head;
@@ -140,11 +131,6 @@ void part2(llist *ll) {
         for (int x = 0; x < strlen(str); x++) {
             schematic[y][x] = str[x];
         }
-=======
-void part2(llist *ll) {
-    llNode *current = ll->head;
-    while(current != NULL) {
->>>>>>> 639af58 (Refactored Linked List Library)
         current = current->next;
     }
 
